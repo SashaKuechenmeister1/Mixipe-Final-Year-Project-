@@ -19,22 +19,23 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
     EditText mEmail, mPassword;
-    Button mRegisterBtn, mLoginBtn;
-    FirebaseAuth fAuth;
+    Button mLoginBtn, mRegisterBtn;
     ProgressBar progressBar;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mEmail = findViewById(R.id.Email);
-        mPassword = findViewById(R.id.Password);
-        mRegisterBtn = findViewById(R.id.RegisterBtn);
-        mLoginBtn = findViewById(R.id.LoginBtn);
-        progressBar = findViewById(R.id.progressBar3);
-
+        mEmail          = findViewById(R.id.Email);
+        mPassword       = findViewById(R.id.Password);
+        progressBar     = findViewById(R.id.progressBar2);
+        mAuth           = FirebaseAuth.getInstance();
+        mLoginBtn       = findViewById(R.id.LoginBtn);
+        mRegisterBtn    = findViewById(R.id.RegisterBtn);
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
@@ -58,7 +59,7 @@ public class Login extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
 
                 // authenticate user
-                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.signInWithEmailAndPassword(email, password) .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -78,6 +79,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Register.class));
+                FirebaseAuth.getInstance().signOut();
             }
         });
     }
