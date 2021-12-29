@@ -86,7 +86,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        // Switches to Create an Account Page
+        // Switches to Registration Page
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
