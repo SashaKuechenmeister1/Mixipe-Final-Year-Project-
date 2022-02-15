@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:background="#717171"
     tools:context=".MainActivity">
 
@@ -21,6 +21,7 @@
         app:max_visible="7"
         app:min_adapter_stack="8"
         app:rotation_degrees="20" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Logout"
@@ -40,6 +41,15 @@
         app:layout_constraintTop_toTopOf="@+id/card"
         app:layout_constraintVertical_bias="0.96" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigator"
+        app:itemBackground="@color/teal_700"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu"
+        android:layout_alignParentBottom="true"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
