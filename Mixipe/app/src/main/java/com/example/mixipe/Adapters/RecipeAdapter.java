@@ -37,9 +37,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
         holder.TitleView.setText(list.get(position).title);
         holder.TitleView.setSelected(true);
-        holder.rating.setText(list.get(position).aggregateLikes+" Likes");
-        holder.servings_size.setText(list.get(position).servings+" Servings");
-        holder.cooking_time.setText(list.get(position).readyInMinutes+" Minutes");
+        holder.rating.setText("Likes: "+list.get(position).aggregateLikes);
+        holder.servings_size.setText("Servings: "+list.get(position).servings);
+        holder.cooking_time.setText("Minutes: "+list.get(position).readyInMinutes);
 
         Picasso.get().load(list.get(position).image).into(holder.RecipeImageView);
     }

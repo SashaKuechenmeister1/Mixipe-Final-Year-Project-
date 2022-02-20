@@ -26,7 +26,7 @@ public class RequestManager {
 
     public void getRandomRecipe(RandomRecipeListener listener){
         RandomRecipeCall randomRecipeCall = retrofit.create(RandomRecipeCall.class);
-        Call<apiRandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "50");
+        Call<apiRandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "5");
         call.enqueue(new Callback<apiRandomRecipe>() {
             @Override
             public void onResponse(Call<apiRandomRecipe> call, Response<apiRandomRecipe> response) {

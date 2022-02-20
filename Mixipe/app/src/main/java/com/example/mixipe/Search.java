@@ -25,6 +25,8 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
     RecipeAdapter recipeAdapter;
     RecyclerView recyclerView;
 
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,10 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
         requestManager = new RequestManager(this);
         requestManager.getRandomRecipe(randomRecipeListener);
         progressDialog.show();
+
+        //getting bottom navigation view and attaching the listener
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigator);
+        bottomNav.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
 
     }
 
@@ -52,7 +58,6 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
 
         @Override
         public void didError(String message) {
-            progressDialog.dismiss();
             Toast.makeText(Search.this, "error", Toast.LENGTH_SHORT);
         }
     };

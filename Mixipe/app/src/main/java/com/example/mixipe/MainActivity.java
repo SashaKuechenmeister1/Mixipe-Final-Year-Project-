@@ -41,41 +41,42 @@ import java.util.List;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
-
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //getting bottom navigation view and attaching the listener
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigator);
-        bottomNav.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
-    }
 
+        bottomNavigationView = findViewById(R.id.bottom_navigator);
+        bottomNavigationView.setSelectedItemId(R.id.swipe);
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
 
-        switch (item.getItemId()) {
+                    case R.id.search:
+                        startActivity(new Intent(getApplicationContext(), Search.class));
+                        overridePendingTransition(0, 0);
+                        return true;
 
-            case R.id.search:
-                startActivity(new Intent(getApplicationContext(), Search.class));
-                overridePendingTransition(0, 0);
-                return true;
+                    case R.id.swipe:
+                        return true;
 
-            case R.id.swipe:
-                return true;
+                    case R.id.liked:
+                        startActivity(new Intent(getApplicationContext(), Liked.class));
+                        overridePendingTransition(0, 0);
+                        return true;
 
-            case R.id.liked:
-                startActivity(new Intent(getApplicationContext(), Liked.class));
-                overridePendingTransition(0, 0);
-                return true;
+                }
 
-        }
+                return false;
+            }
 
-        return false;
+        });
     }
 
 }

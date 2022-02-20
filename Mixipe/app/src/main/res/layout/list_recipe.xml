@@ -13,20 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/TitleView"
-            android:text="Recipe Title"
-            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:textStyle="bold"
-            android:textSize="15dp"
             android:padding="10dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="Recipe Title"
             android:textAlignment="center"
             android:textColor="@color/purple_700"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/RecipeImageView"
@@ -50,9 +51,9 @@
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/servings_size"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:padding="10dp"
-                    android:text="2 servings"
+                    android:text="Servings: 1"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -69,9 +70,9 @@
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/rating"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:padding="10dp"
-                    android:text="1732"
+                    android:text="Likes: 1732"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -90,13 +91,12 @@
                     android:id="@+id/cooking_time"
                     android:textSize="15dp"
                     android:padding="10dp"
-                    android:text="45 minutes"
+                    android:text="Minutes: 30"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 
 </androidx.cardview.widget.CardView>
