@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.idea",
+    "\\.idea\\modules",
+    "\\.idea\\modules\\app",
+    "\\app",
+    "\\app\\src",
+    "\\app\\src\\main",
+    "\\app\\src\\main\\java",
+    "\\app\\src\\main\\java\\com",
+    "\\app\\src\\main\\java\\com\\example",
+    "\\app\\src\\main\\java\\com\\example\\mixipe"
+  ],
+  "SelectedNode": "\\app\\src\\main\\java\\com\\example\\mixipe\\Search.java",
+  "PreviewInSolutionExplorer": false
+}

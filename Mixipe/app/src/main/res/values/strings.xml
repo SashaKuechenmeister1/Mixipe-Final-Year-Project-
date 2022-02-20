@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Mixipe</string>
+    <string name="apiKey">0de4c154135142d3b7adf45dd6b52b83</string>
     <string name="mixipe">Mixipe</string>
     <string name="create_new_account">Create New Account</string>
     <string name="email">Email</string>

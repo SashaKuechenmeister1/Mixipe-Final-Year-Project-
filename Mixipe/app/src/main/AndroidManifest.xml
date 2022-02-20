@@ -14,12 +14,15 @@
         <activity
             android:name=".Liked"
             android:exported="false" />
+			
         <activity
             android:name=".Search"
             android:exported="false" />
+			
         <activity
             android:name=".Register"
             android:exported="false" />
+			
         <activity
             android:name=".Login"
             android:exported="true">
@@ -29,6 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+		
         <activity
             android:name=".MainActivity"
             android:exported="true">
