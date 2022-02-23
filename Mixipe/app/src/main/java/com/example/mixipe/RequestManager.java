@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.mixipe.Listeners.RandomRecipeListener;
 import com.example.mixipe.Models.apiRandomRecipe;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,9 +26,9 @@ public class RequestManager {
         this.context = context;
     }
 
-    public void getRandomRecipe(RandomRecipeListener listener){
+    public void getRandomRecipe(RandomRecipeListener listener, List<String> tags){
         RandomRecipeCall randomRecipeCall = retrofit.create(RandomRecipeCall.class);
-        Call<apiRandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "5");
+        Call<apiRandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "5", tags);
         call.enqueue(new Callback<apiRandomRecipe>() {
             @Override
             public void onResponse(Call<apiRandomRecipe> call, Response<apiRandomRecipe> response) {
@@ -48,7 +50,8 @@ public class RequestManager {
         @GET("recipes/random")
         Call<apiRandomRecipe> RandomRecipeCall(
                 @Query("apiKey") String apiKey,
-                @Query("number") String number
+                @Query("number") String number,
+                @Query("tags") List<String> tags
         );
     }
 }

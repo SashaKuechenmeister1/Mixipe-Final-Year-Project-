@@ -9,11 +9,16 @@
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_arrow_back_black_24dp.xml" value="0.36875" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_arrow_downward_black_24dp.xml" value="0.36875" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_arrow_forward_black_24dp.xml" value="0.36875" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_cooking_time.xml" value="0.3828125" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_favorite_black_24.xml" value="0.3828125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3380208333333333" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_rating.xml" value="0.3828125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_search_black_24.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_serving_size.xml" value="0.3828125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/ic_swipe_black_24.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/mixipe_foreground.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/rating.xml" value="0.3828125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/drawable/selector.xml" value="0.3828125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_liked.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_login.xml" value="0.33" />
@@ -32,6 +37,8 @@
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/list_recipe.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/navbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/recipe_card.xml" value="0.1" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/spinner_inner_text.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/spinner_text.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/swipeablecards.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/swipecardview.xml" value="0.2890625" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/menu/bottom_nav.xml" value="0.36666666666666664" />
