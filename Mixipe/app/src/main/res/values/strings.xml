@@ -27,7 +27,12 @@
         <item>dessert</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="tag">
+        <item>African</item>
+        <item>American</item>
+        <item>British</item>
+        <item>Cajun</item>
+    </string-array>
+
 
 </resources>

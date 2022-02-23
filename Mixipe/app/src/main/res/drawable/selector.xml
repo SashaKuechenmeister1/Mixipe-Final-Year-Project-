@@ -8,7 +8,7 @@
 
     <item
         android:state_selected="false"
-        android:color="@android:color/black"/>
+        android:color="@color/black"/>
 
 
 </selector>

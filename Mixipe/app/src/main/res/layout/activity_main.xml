@@ -18,7 +18,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:elevation="4dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <!--<androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,13 +29,13 @@
         android:scrollbars="vertical"
         android:paddingTop="?attr/actionBarSize"
         android:layout_marginBottom="?attr/actionBarSize"
-        />
+        />-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/purple_700"
+        android:background="@color/purple_500"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
