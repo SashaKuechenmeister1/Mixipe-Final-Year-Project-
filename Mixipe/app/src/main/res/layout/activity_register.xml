@@ -70,25 +70,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RegisterBtn" />
 
-    <EditText
-        android:id="@+id/Password"
-        android:layout_width="254dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:fontFamily="sans-serif-light"
-        android:hint="Password"
-        android:inputType="textPersonName|textPassword"
-        android:padding="10sp"
-        android:textAlignment="textStart"
-        android:textColor="#000000"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email" />
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/RegisterBtn"
         android:layout_width="254dp"
@@ -104,25 +85,6 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Confirm" />
-
-    <EditText
-        android:id="@+id/Confirm"
-        android:layout_width="254dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:fontFamily="sans-serif-light"
-        android:hint="Confirm Password"
-        android:inputType="textPersonName|textPassword"
-        android:padding="10sp"
-        android:textAlignment="textStart"
-        android:textColor="#000000"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <EditText
         android:id="@+id/Email"
@@ -142,6 +104,44 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FullName" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="254dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="sans-serif-light"
+        android:hint="Password"
+        android:inputType="textPersonName|textPassword"
+        android:padding="10sp"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Email" />
+
+    <EditText
+        android:id="@+id/Confirm"
+        android:layout_width="254dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="sans-serif-light"
+        android:hint="Confirm Password"
+        android:inputType="textPersonName|textPassword"
+        android:padding="10sp"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <EditText
         android:id="@+id/FullName"

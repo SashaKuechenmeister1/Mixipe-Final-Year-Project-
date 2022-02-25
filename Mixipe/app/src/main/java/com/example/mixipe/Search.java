@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,6 +34,7 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
     RecyclerView recyclerView;
     Spinner spinner;
     List<String> tags = new ArrayList<>();
+    SearchView searchView;
 
 
 
@@ -43,6 +45,24 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading recipes...");
+
+        //Search Bar
+        searchView = findViewById(R.id.searchBar);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                tags.clear();
+                tags.add(query);
+                requestManager.getRandomRecipe(randomRecipeListener, tags);
+                progressDialog.show();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
         //Spinner Tags
         spinner = findViewById(R.id.spinnerTags);
