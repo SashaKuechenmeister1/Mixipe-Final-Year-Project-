@@ -16,7 +16,6 @@ C18404082
 <br>
 
 **Supervisor:** <br>
-Senja Trinh   <br>
 Anh Doung Trinh  
 
 <br>
