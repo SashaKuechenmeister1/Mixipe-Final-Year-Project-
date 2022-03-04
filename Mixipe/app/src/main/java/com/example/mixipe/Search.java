@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mixipe.Adapters.RecipeAdapter;
 import com.example.mixipe.Listeners.RandomRecipeListener;
+import com.example.mixipe.Listeners.RecipeOnClickListener;
 import com.example.mixipe.Models.apiRandomRecipe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -92,7 +93,7 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
             recyclerView = findViewById(R.id.random_recycler);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(Search.this, 1));
-            recipeAdapter = new RecipeAdapter(Search.this, response.recipes);
+            recipeAdapter = new RecipeAdapter(Search.this, response.recipes, recipeOnClickListener);
             recyclerView.setAdapter(recipeAdapter);
         }
 
@@ -115,6 +116,14 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
+        }
+    };
+
+    private final RecipeOnClickListener recipeOnClickListener = new RecipeOnClickListener() {
+        @Override
+        public void onRecipeClick(String id) {
+            startActivity(new Intent(Search.this, RecipeDetails.class)
+            .putExtra("id", id));
         }
     };
 

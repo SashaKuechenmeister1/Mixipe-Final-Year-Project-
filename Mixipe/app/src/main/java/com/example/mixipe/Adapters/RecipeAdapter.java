@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mixipe.Listeners.RecipeOnClickListener;
 import com.example.mixipe.Models.Recipe;
 import com.example.mixipe.R;
 import com.squareup.picasso.Picasso;
@@ -21,10 +22,12 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
 
     Context context;
     List<Recipe> list;
+    RecipeOnClickListener listener;
 
-    public RecipeAdapter(Context context, List<Recipe> list) {
+    public RecipeAdapter(Context context, List<Recipe> list, RecipeOnClickListener listener) {
         this.context = context;
         this.list = list;
+        this.listener = listener;
     }
 
     @NonNull
@@ -42,6 +45,14 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
         holder.cooking_time.setText("Minutes: "+list.get(position).readyInMinutes);
 
         Picasso.get().load(list.get(position).image).into(holder.RecipeImageView);
+
+        holder.list_container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onRecipeClick(String.valueOf(list.get(holder.getAdapterPosition()).id));
+            }
+        });
+
     }
 
     @Override
