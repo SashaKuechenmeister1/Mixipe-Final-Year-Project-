@@ -24,7 +24,7 @@
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_liked.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_recipe_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_recipe_details.xml" value="0.33" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_recipeadapter.xml" value="0.228125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_register2.xml" value="0.3078125" />
@@ -36,8 +36,9 @@
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/fragment_search.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/fragment_swipe.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/item_koloda.xml" value="0.22" />
-        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/list_ingredients.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/list_ingredients.xml" value="0.1" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/list_recipe.xml" value="0.33" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/list_similar.xml" value="0.33" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/navbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/recipe_card.xml" value="0.1" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/spinner_inner_text.xml" value="0.36666666666666664" />
@@ -59,5 +60,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.36666666666666664" />
+      </ProjectState>
+    </option>
   </component>
 </project>

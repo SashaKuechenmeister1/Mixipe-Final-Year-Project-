@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.example.mixipe.Listeners.RandomRecipeListener;
 import com.example.mixipe.Listeners.RecipeDetailsListener;
+import com.example.mixipe.Listeners.SimilarRecipeListener;
 import com.example.mixipe.Models.DetailsResponse;
+import com.example.mixipe.Models.SimilarRecipe;
 import com.example.mixipe.Models.apiRandomRecipe;
 
 import java.util.List;
@@ -17,6 +19,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+
+//Class that handles all the API requests
 
 public class RequestManager {
     Context context;
@@ -32,6 +36,7 @@ public class RequestManager {
     // Method to access random recipes interface
     public void getRandomRecipe(RandomRecipeListener listener, List<String> tags){
         RandomRecipeCall randomRecipeCall = retrofit.create(RandomRecipeCall.class);
+        // list 3 random recipes
         Call<apiRandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "3", tags);
         call.enqueue(new Callback<apiRandomRecipe>() {
             @Override
@@ -71,6 +76,29 @@ public class RequestManager {
         });
     }
 
+    // Method to access Similar Recipe interface
+    public void getSimilarRecipe(SimilarRecipeListener listener, int id) {
+        SimilarRecipeCall similarRecipeCall = retrofit.create(SimilarRecipeCall.class);
+        // lists 3 similar recipes
+        Call<List<SimilarRecipe>> call = similarRecipeCall.similarRecipeCall(id, "5", context.getString(R.string.apiKey));
+        call.enqueue(new Callback<List<SimilarRecipe>>() {
+            @Override
+            public void onResponse(Call<List<SimilarRecipe>> call, Response<List<SimilarRecipe>> response) {
+                if (!response.isSuccessful()){
+                    listener.didError(response.message());
+                    return;
+                }
+                listener.didFetch(response.body(), response.message());
+            }
+
+            @Override
+            public void onFailure(Call<List<SimilarRecipe>> call, Throwable t) {
+                listener.didError(t.getMessage());
+            }
+        });
+    }
+
+    // interface to get random recipes
     private interface RandomRecipeCall {
         @GET("recipes/random")
         Call<apiRandomRecipe> RandomRecipeCall(
@@ -80,12 +108,22 @@ public class RequestManager {
         );
     }
 
-    //interface for recipe details
+    // interface for recipe details
     private interface RecipeDetailsCall {
         @GET("recipes/{id}/information")
         Call<DetailsResponse> recipeDetailsCall (
                 @Path("id") int id,
                 @Query("apiKey") String apiKey
+        );
+    }
+
+    // interface to display similar recipes
+    private interface SimilarRecipeCall {
+        @GET("recipes/{id}/similar")
+        Call<List<SimilarRecipe>> similarRecipeCall (
+            @Path("id") int id,
+            @Query("number") String number,
+            @Query("apiKey") String apiKey
         );
     }
 
