@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mixipe.Adapters.RecipeAdapter;
 import com.example.mixipe.Listeners.RandomRecipeListener;
 import com.example.mixipe.Listeners.RecipeOnClickListener;
-import com.example.mixipe.Models.apiRandomRecipe;
+import com.example.mixipe.Models.RandomRecipe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -77,8 +77,6 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
         spinner.setOnItemSelectedListener(selectedSpinnerListener);
 
         requestManager = new RequestManager(this);
-        // requestManager.getRandomRecipe(randomRecipeListener);
-        // progressDialog.show();
 
         //getting bottom navigation view and attaching the listener
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigator);
@@ -88,7 +86,7 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
 
     private final RandomRecipeListener randomRecipeListener = new RandomRecipeListener() {
         @Override
-        public void didFetch(apiRandomRecipe response, String message) {
+        public void didFetch(RandomRecipe response, String message) {
             progressDialog.dismiss();
             recyclerView = findViewById(R.id.random_recycler);
             recyclerView.setHasFixedSize(true);

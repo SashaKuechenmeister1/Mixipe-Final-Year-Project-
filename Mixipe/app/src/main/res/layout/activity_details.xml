@@ -62,11 +62,43 @@
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/Meal_Description"
-                android:text="Description:"
+                android:maxLines="7"
                 android:textSize="15sp"
                 android:padding="8dp"
                 android:textColor="@color/teal_700"
                 android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Ingredients:"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                android:background="@color/teal_700"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Meal_Ingredients"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Method:"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                android:background="@color/teal_700"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Meal_Method"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -77,29 +109,14 @@
                 android:padding="8dp"
                 android:layout_margin="8dp"
                 android:textColor="@color/white"
-                android:background="@color/teal_700"                android:layout_width="match_parent"
+                android:background="@color/teal_700"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/Meal_Similar"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </androidx.recyclerview.widget.RecyclerView>
-            <TextView
-                android:text="Ingredients:"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:padding="8dp"
-                android:gravity="center"
-                android:layout_margin="8dp"
-                android:textColor="@color/white"
-                android:background="@color/teal_700"                android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            L<androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Meal_Ingredients"
-            android:layout_margin="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 

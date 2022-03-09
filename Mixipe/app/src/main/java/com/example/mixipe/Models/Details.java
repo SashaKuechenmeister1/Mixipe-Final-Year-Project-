@@ -5,7 +5,7 @@ import com.example.mixipe.RecipeDetails;
 import java.util.ArrayList;
 
 
-public class DetailsResponse {
+public class Details {
     public int id;
     public String title;
     public String image;

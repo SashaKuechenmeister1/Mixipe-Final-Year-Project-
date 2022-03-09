@@ -4,10 +4,12 @@ import android.content.Context;
 
 import com.example.mixipe.Listeners.RandomRecipeListener;
 import com.example.mixipe.Listeners.RecipeDetailsListener;
+import com.example.mixipe.Listeners.RecipeMethodListener;
 import com.example.mixipe.Listeners.SimilarRecipeListener;
-import com.example.mixipe.Models.DetailsResponse;
+import com.example.mixipe.Models.Details;
+import com.example.mixipe.Models.Method;
 import com.example.mixipe.Models.SimilarRecipe;
-import com.example.mixipe.Models.apiRandomRecipe;
+import com.example.mixipe.Models.RandomRecipe;
 
 import java.util.List;
 
@@ -33,14 +35,14 @@ public class RequestManager {
         this.context = context;
     }
 
-    // Method to access random recipes interface
+    // Method to access random recipes interface / get random recipes
     public void getRandomRecipe(RandomRecipeListener listener, List<String> tags){
         RandomRecipeCall randomRecipeCall = retrofit.create(RandomRecipeCall.class);
         // list 3 random recipes
-        Call<apiRandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "3", tags);
-        call.enqueue(new Callback<apiRandomRecipe>() {
+        Call<RandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "3", tags);
+        call.enqueue(new Callback<RandomRecipe>() {
             @Override
-            public void onResponse(Call<apiRandomRecipe> call, Response<apiRandomRecipe> response) {
+            public void onResponse(Call<RandomRecipe> call, Response<RandomRecipe> response) {
                 if (!response.isSuccessful()){
                     listener.didError(response.message());
                     return;
@@ -49,19 +51,19 @@ public class RequestManager {
             }
 
             @Override
-            public void onFailure(Call<apiRandomRecipe> call, Throwable t) {
+            public void onFailure(Call<RandomRecipe> call, Throwable t) {
                 listener.didError(t.getMessage());
             }
         });
     }
 
-    // Method to access recipe details interface
+    // Method to access recipe details interface / get recipe details
     public void getRecipeDetails(RecipeDetailsListener listener, int id) {
         RecipeDetailsCall recipeDetailsCall = retrofit.create(RecipeDetailsCall.class);
-        Call<DetailsResponse> call = recipeDetailsCall.recipeDetailsCall(id, context.getString(R.string.apiKey));
-        call.enqueue(new Callback<DetailsResponse>() {
+        Call<Details> call = recipeDetailsCall.recipeDetailsCall(id, context.getString(R.string.apiKey));
+        call.enqueue(new Callback<Details>() {
             @Override
-            public void onResponse(Call<DetailsResponse> call, Response<DetailsResponse> response) {
+            public void onResponse(Call<Details> call, Response<Details> response) {
                 if (!response.isSuccessful()){
                     listener.didError(response.message());
                     return;
@@ -70,17 +72,17 @@ public class RequestManager {
             }
 
             @Override
-            public void onFailure(Call<DetailsResponse> call, Throwable t) {
+            public void onFailure(Call<Details> call, Throwable t) {
                 listener.didError(t.getMessage());
             }
         });
     }
 
-    // Method to access Similar Recipe interface
+    // Method to access similar recipe interface / get similar recipes
     public void getSimilarRecipe(SimilarRecipeListener listener, int id) {
         SimilarRecipeCall similarRecipeCall = retrofit.create(SimilarRecipeCall.class);
         // lists 3 similar recipes
-        Call<List<SimilarRecipe>> call = similarRecipeCall.similarRecipeCall(id, "5", context.getString(R.string.apiKey));
+        Call<List<SimilarRecipe>> call = similarRecipeCall.similarRecipeCall(id, "3", context.getString(R.string.apiKey));
         call.enqueue(new Callback<List<SimilarRecipe>>() {
             @Override
             public void onResponse(Call<List<SimilarRecipe>> call, Response<List<SimilarRecipe>> response) {
@@ -98,32 +100,62 @@ public class RequestManager {
         });
     }
 
+    //Method to access recipe instructions interface / get recipe instructions
+    public void getMethod(RecipeMethodListener listener, int id) {
+        MethodCall methodCall = retrofit.create(MethodCall.class);
+        Call<List<Method>> call = methodCall.methodCall(id, context.getString(R.string.apiKey));
+        call.enqueue(new Callback<List<Method>>() {
+            @Override
+            public void onResponse(Call<List<Method>> call, Response<List<Method>> response) {
+                if (!response.isSuccessful()){
+                    listener.didError(response.message());
+                    return;
+                }
+                listener.didFetch(response.body(), response.message());
+            }
+
+            @Override
+            public void onFailure(Call<List<Method>> call, Throwable t) {
+                listener.didError(t.getMessage());
+            }
+        });
+    }
+
     // interface to get random recipes
     private interface RandomRecipeCall {
         @GET("recipes/random")
-        Call<apiRandomRecipe> RandomRecipeCall(
+        Call<RandomRecipe> RandomRecipeCall(
                 @Query("apiKey") String apiKey,
                 @Query("number") String number,
                 @Query("tags") List<String> tags
         );
     }
 
-    // interface for recipe details
+    // interface to get recipe details
     private interface RecipeDetailsCall {
         @GET("recipes/{id}/information")
-        Call<DetailsResponse> recipeDetailsCall (
+        Call<Details> recipeDetailsCall (
                 @Path("id") int id,
                 @Query("apiKey") String apiKey
         );
     }
 
-    // interface to display similar recipes
+    // interface to get similar recipes
     private interface SimilarRecipeCall {
         @GET("recipes/{id}/similar")
         Call<List<SimilarRecipe>> similarRecipeCall (
             @Path("id") int id,
             @Query("number") String number,
             @Query("apiKey") String apiKey
+        );
+    }
+
+    // interface to get recipe instructions
+    private interface MethodCall {
+        @GET("recipes/{id}/analyzedInstructions")
+        Call<List<Method>> methodCall(
+                @Path("id") int id,
+                @Query("apiKey") String apiKey
         );
     }
 

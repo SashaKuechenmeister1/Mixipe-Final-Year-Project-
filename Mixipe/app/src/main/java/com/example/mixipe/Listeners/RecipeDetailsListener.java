@@ -1,8 +1,8 @@
 package com.example.mixipe.Listeners;
 
-import com.example.mixipe.Models.DetailsResponse;
+import com.example.mixipe.Models.Details;
 
 public interface RecipeDetailsListener {
-    void didFetch(DetailsResponse response, String message);
+    void didFetch(Details response, String message);
     void didError(String message);
 }
