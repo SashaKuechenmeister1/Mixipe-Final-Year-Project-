@@ -12,10 +12,13 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mixipe.Listeners.RecipeOnClickListener;
+import com.example.mixipe.Models.RandomRecipe;
 import com.example.mixipe.Models.Recipe;
 import com.example.mixipe.R;
 import com.squareup.picasso.Picasso;
 
+import java.security.AccessControlContext;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{

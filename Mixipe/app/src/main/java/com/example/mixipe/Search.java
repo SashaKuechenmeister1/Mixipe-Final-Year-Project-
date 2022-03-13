@@ -135,7 +135,7 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
                 return true;
 
             case R.id.swipe:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), Swipe.class));
                 overridePendingTransition(0, 0);
                 return true;
 
