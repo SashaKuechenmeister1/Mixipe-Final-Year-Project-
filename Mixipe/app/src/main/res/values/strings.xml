@@ -10,6 +10,9 @@
     <string name="register">Register</string>
     <string name="password">Password</string>
     <string name="hello_world">HelloWorld</string>
+    <string name="like">Like</string>
+    <string name="dislike">Dislike</string>
+
 
 
     <string-array name="tags">

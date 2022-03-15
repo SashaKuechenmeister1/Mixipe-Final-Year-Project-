@@ -101,7 +101,7 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
         }
     };
 
-    //On click listener for spinner tags
+    // OnClickListener for the spinner tags
     private final AdapterView.OnItemSelectedListener selectedSpinnerListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -117,6 +117,7 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
         }
     };
 
+    // OnClickListener for when user clicks on a recipe
     private final RecipeOnClickListener recipeOnClickListener = new RecipeOnClickListener() {
         @Override
         public void onRecipeClick(String id) {

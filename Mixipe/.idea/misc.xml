@@ -32,7 +32,7 @@
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_register2.xml" value="0.3078125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_search.xml" value="0.25" />
-        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_swipe.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/activity_swipe.xml" value="0.25" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/customcell.xml" value="0.228125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/details.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/fragment_home.xml" value="0.33697916666666666" />
@@ -48,10 +48,12 @@
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/list_similar.xml" value="0.33" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/navbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/recipe_card.xml" value="0.1" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/rv_cardview.xml" value="0.2942708333333333" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/spinner_inner_text.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/spinner_text.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/swipe_buttons.xml" value="0.3203125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/swipe_butttons.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/swipe_cards.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/swipe_item.xml" value="0.3203125" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/swipeablecards.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha2.0/AndroidStudioProjects/Mixipe/app/src/main/res/layout/swipecardview.xml" value="0.2890625" />

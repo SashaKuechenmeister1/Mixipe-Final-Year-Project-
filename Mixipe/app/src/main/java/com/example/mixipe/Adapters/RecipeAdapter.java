@@ -15,6 +15,7 @@ import com.example.mixipe.Listeners.RecipeOnClickListener;
 import com.example.mixipe.Models.RandomRecipe;
 import com.example.mixipe.Models.Recipe;
 import com.example.mixipe.R;
+import com.example.mixipe.Swipe;
 import com.squareup.picasso.Picasso;
 
 import java.security.AccessControlContext;
@@ -32,6 +33,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
         this.list = list;
         this.listener = listener;
     }
+
 
     @NonNull
     @Override
