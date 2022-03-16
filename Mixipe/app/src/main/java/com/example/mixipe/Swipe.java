@@ -1,7 +1,11 @@
 package com.example.mixipe;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +13,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
+import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 
+import com.example.mixipe.Adapters.RecipeAdapter;
+import com.example.mixipe.Listeners.RandomRecipeListener;
+import com.example.mixipe.Listeners.RecipeOnClickListener;
+import com.example.mixipe.Models.RandomRecipe;
+import com.example.mixipe.Models.Recipe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
@@ -21,6 +33,7 @@ import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
 import com.yuyakaido.android.cardstackview.Direction;
 import com.yuyakaido.android.cardstackview.StackFrom;
+import com.yuyakaido.android.cardstackview.SwipeAnimationSetting;
 import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
 import org.json.JSONArray;
@@ -37,12 +50,17 @@ import java.util.Map;
 public class Swipe extends AppCompatActivity implements CardStackListener {
 
     BottomNavigationView bottomNavigationView;
-    List<Model> list = new ArrayList<>();
+    List<Recipe> list = new ArrayList<>();
     CardStackLayoutManager manager;
-    ProgressDialog pd;
+    RequestManager requestManager;
+    RecyclerView recyclerView;
+    ProgressDialog progressDialog;
     String TAG = "Swipe";
-    RecyclerViewAdapter adapter;
+    RecipeAdapter adapter;
     CardStackView stackView;
+
+    List<String> tags = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,12 +101,12 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
 
 
     void getRecipe() {
-        pd = AppController.getDialog(this);
-        pd.show();
+        progressDialog = AppController.getDialog(this);
+        progressDialog.show();
         StringRequest jsonObjReq = new StringRequest(Request.Method.GET,
                 "https://api.spoonacular.com/recipes/random?apiKey=0de4c154135142d3b7adf45dd6b52b83",
                 response -> {
-                    pd.dismiss();
+                    progressDialog.dismiss();
                     Log.e(TAG, response);
                     try {
                         JSONObject obj1 = new JSONObject(response);
@@ -98,11 +116,12 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
                             JSONObject obj = array.getJSONObject(i);
                             String title = obj.getString("title");
                             String image = obj.getString("image");
-                            list.add(0, new Model(title, image));
+                            int servings = obj.getInt("servings");
+                            int readyInMinutes = obj.getInt("readyInMinutes");
+                            int aggregateLikes = obj.getInt("aggregateLikes");
+                            list.add(0, new Recipe(title, image, servings, readyInMinutes, aggregateLikes));
                         }
-                        adapter = new RecyclerViewAdapter(list, Swipe.this);
-                        manager =
-                                new CardStackLayoutManager(Swipe.this, Swipe.this);
+                        manager = new CardStackLayoutManager(Swipe.this, Swipe.this);
                         manager.setStackFrom(StackFrom.Top);
                         manager.setVisibleCount(3);
                         manager.setTranslationInterval(8.0f);
@@ -114,6 +133,7 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
                         manager.setCanScrollVertical(true);
                         manager.setSwipeableMethod(SwipeableMethod.AutomaticAndManual);
                         manager.setOverlayInterpolator(new LinearInterpolator());
+                        adapter = new RecipeAdapter(Swipe.this, list, recipeOnClickListener);
                         stackView.setLayoutManager(manager);
                         stackView.setAdapter(adapter);
                     } catch (JSONException e) {
@@ -121,7 +141,7 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
                     }
                 }, error -> {
             Log.e(TAG, "Error: " + error.getMessage());
-            pd.dismiss();
+            progressDialog.dismiss();
         }) {
 
             @Override
@@ -135,6 +155,17 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
         AppController.getInstance().addToRequestQueue(jsonObjReq, "get-groups");
     }
 
+
+    // OnClickListener for when user clicks on a recipe
+    private final RecipeOnClickListener recipeOnClickListener = new RecipeOnClickListener() {
+        @Override
+        public void onRecipeClick(String id) {
+            startActivity(new Intent(Swipe.this, RecipeDetails.class)
+                    .putExtra("id", id));
+        }
+    };
+
+
     @Override
     public void onCardDragging(Direction direction, float ratio) {
 
@@ -143,8 +174,10 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     @Override
     public void onCardSwiped(Direction direction) {
         if (direction.name().equals("Right")) {
+            Toast.makeText(Swipe.this, "like", Toast.LENGTH_SHORT).show();
             getRecipe();
         } else if (direction.name().equals("Left")) {
+            Toast.makeText(Swipe.this, "dislike", Toast.LENGTH_SHORT).show();
             getRecipe();
         }
     }
@@ -168,6 +201,8 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     public void onCardDisappeared(View view, int position) {
 
     }
+
+
 
 
 }

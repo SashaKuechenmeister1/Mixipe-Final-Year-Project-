@@ -117,7 +117,7 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
         }
     };
 
-    // OnClickListener for when user clicks on a recipe
+    // OnClickListener for when user click on a recipe
     private final RecipeOnClickListener recipeOnClickListener = new RecipeOnClickListener() {
         @Override
         public void onRecipeClick(String id) {

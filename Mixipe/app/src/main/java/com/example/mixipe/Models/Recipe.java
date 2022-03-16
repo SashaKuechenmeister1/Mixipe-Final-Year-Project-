@@ -38,4 +38,32 @@ public class Recipe {
     public ArrayList<AnalyzedInstruction> analyzedInstructions;
     public Object originalId;
     public String spoonacularSourceUrl;
+
+
+    public Recipe(String title, String image, int servings, int readyInMinutes, int aggregateLikes) {
+        this.title = title;
+        this.image = image;
+        this.servings = servings;
+        this.readyInMinutes = readyInMinutes;
+        this.aggregateLikes = aggregateLikes;
+    }
+
+    public Recipe() {
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public int getServings() {return servings;}
+
+    public int getReadyInMinutes() {return readyInMinutes;}
+
+    public int getAggregateLikes() {return aggregateLikes;}
 }
+
+
