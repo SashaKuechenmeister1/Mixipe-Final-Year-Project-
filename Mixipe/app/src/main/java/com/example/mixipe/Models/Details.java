@@ -42,6 +42,4 @@ public class Details {
     public ArrayList<String> dishTypes;
     public ArrayList<ExtendedIngredient> extendedIngredients;
     public String summary;
-    public WinePairing winePairing;
-
 }

@@ -5,5 +5,4 @@ public class Equipment {
     public String name;
     public String localizedName;
     public String image;
-    public Temperature temperature;
 }

@@ -66,9 +66,9 @@ public class AppController extends Application {
     }
 
     public static ProgressDialog getDialog(Context context) {
-        ProgressDialog pd = new ProgressDialog(context);
-        pd.setMessage("Please wait...");
-        pd.setCancelable(false);
-        return pd;
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false);
+        return progressDialog;
     }
 }

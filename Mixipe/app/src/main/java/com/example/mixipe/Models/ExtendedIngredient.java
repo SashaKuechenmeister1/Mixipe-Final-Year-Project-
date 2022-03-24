@@ -14,5 +14,4 @@ public class ExtendedIngredient {
     public double amount;
     public String unit;
     public ArrayList<String> meta;
-    public Measures measures;
 }

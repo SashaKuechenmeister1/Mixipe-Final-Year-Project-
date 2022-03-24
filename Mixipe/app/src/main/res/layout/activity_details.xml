@@ -50,26 +50,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"/>
             <TextView
-                android:text="Description:"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="15sp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                android:textColor="@color/white"
-                android:background="@color/teal_700"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/Meal_Description"
-                android:maxLines="7"
-                android:textSize="15sp"
-                android:padding="8dp"
-                android:textColor="@color/teal_700"
-                android:layout_margin="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
                 android:text="Ingredients:"
                 android:textSize="15sp"
                 android:textStyle="bold"

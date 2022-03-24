@@ -126,10 +126,12 @@ public class Search extends AppCompatActivity implements BottomNavigationView.On
         }
     };
 
+    /**** bottom navigation bar ****/
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+        // switch statement to change between activities
         switch (item.getItemId()) {
 
             case R.id.search:

@@ -7,5 +7,4 @@ public class Step {
     public ArrayList<Ingredient> ingredients;
     public int number;
     public String step;
-    public Length length;
 }

@@ -19,12 +19,15 @@ public class Liked extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liked);
 
+        /**** bottom navigation bar ****/
+
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.liked);
-
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                // switch statement to change between activities
                 switch (item.getItemId()) {
 
                     case R.id.search:

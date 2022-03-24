@@ -1,10 +1,8 @@
 package com.example.mixipe;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,7 +11,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Toast;
 
@@ -22,7 +19,6 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 
 import com.example.mixipe.Adapters.RecipeAdapter;
-import com.example.mixipe.Listeners.RandomRecipeListener;
 import com.example.mixipe.Listeners.RecipeOnClickListener;
 import com.example.mixipe.Models.RandomRecipe;
 import com.example.mixipe.Models.Recipe;
@@ -52,14 +48,10 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     BottomNavigationView bottomNavigationView;
     List<Recipe> list = new ArrayList<>();
     CardStackLayoutManager manager;
-    RequestManager requestManager;
-    RecyclerView recyclerView;
     ProgressDialog progressDialog;
     String TAG = "Swipe";
     RecipeAdapter adapter;
     CardStackView stackView;
-
-    List<String> tags = new ArrayList<>();
 
 
     @Override
@@ -70,12 +62,15 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
         getRecipe();
 
 
-        //Bottom Navigation
+        /**** bottom navigation bar ****/
+
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.swipe);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                // switch statement to change between activities
                 switch (item.getItemId()) {
 
                     case R.id.search:
@@ -90,15 +85,13 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
                         startActivity(new Intent(getApplicationContext(), Liked.class));
                         overridePendingTransition(0, 0);
                         return true;
-
                 }
-
                 return false;
             }
-
         });
     }
 
+    /**** get necessary recipe data for swipeable cards ****/
 
     void getRecipe() {
         progressDialog = AppController.getDialog(this);
@@ -112,7 +105,8 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
                         JSONObject obj1 = new JSONObject(response);
                         JSONArray array = obj1.getJSONArray("recipes");
                         list.clear();
-                        for (int i = 0; i < array.length(); i++) {
+                        int i;
+                        for (i = 0; i < array.length(); i++) {
                             JSONObject obj = array.getJSONObject(i);
                             String title = obj.getString("title");
                             String image = obj.getString("image");
@@ -156,7 +150,7 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     }
 
 
-    // OnClickListener for when user clicks on a recipe
+    // OnClickListener for when user click on a recipe
     private final RecipeOnClickListener recipeOnClickListener = new RecipeOnClickListener() {
         @Override
         public void onRecipeClick(String id) {
@@ -166,6 +160,8 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     };
 
 
+    /**** recipe card actions ****/
+
     @Override
     public void onCardDragging(Direction direction, float ratio) {
 
@@ -173,9 +169,11 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
 
     @Override
     public void onCardSwiped(Direction direction) {
+        // if user swipes right, recipe will be "liked"
         if (direction.name().equals("Right")) {
             Toast.makeText(Swipe.this, "like", Toast.LENGTH_SHORT).show();
             getRecipe();
+        // if user swipes left, recipe will be "disliked"
         } else if (direction.name().equals("Left")) {
             Toast.makeText(Swipe.this, "dislike", Toast.LENGTH_SHORT).show();
             getRecipe();
