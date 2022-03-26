@@ -38,8 +38,8 @@ public class RequestManager {
     // Method to access random recipes interface / get random recipes
     public void getRandomRecipe(RandomRecipeListener listener, List<String> tags){
         RandomRecipeCall randomRecipeCall = retrofit.create(RandomRecipeCall.class);
-        // list 3 random recipes
-        Call<RandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "3", tags);
+        // list 5 random recipes
+        Call<RandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "5", tags);
         call.enqueue(new Callback<RandomRecipe>() {
             @Override
             public void onResponse(Call<RandomRecipe> call, Response<RandomRecipe> response) {
@@ -81,8 +81,8 @@ public class RequestManager {
     // Method to access similar recipe interface / get similar recipes
     public void getSimilarRecipe(SimilarRecipeListener listener, int id) {
         SimilarRecipeCall similarRecipeCall = retrofit.create(SimilarRecipeCall.class);
-        // lists 3 similar recipes
-        Call<List<SimilarRecipe>> call = similarRecipeCall.similarRecipeCall(id, "3", context.getString(R.string.apiKey));
+        // lists 5 similar recipes
+        Call<List<SimilarRecipe>> call = similarRecipeCall.similarRecipeCall(id, "5", context.getString(R.string.apiKey));
         call.enqueue(new Callback<List<SimilarRecipe>>() {
             @Override
             public void onResponse(Call<List<SimilarRecipe>> call, Response<List<SimilarRecipe>> response) {
@@ -140,6 +140,15 @@ public class RequestManager {
         );
     }
 
+    // interface to get recipe instructions
+    private interface MethodCall {
+        @GET("recipes/{id}/analyzedInstructions")
+        Call<List<Method>> methodCall(
+                @Path("id") int id,
+                @Query("apiKey") String apiKey
+        );
+    }
+
     // interface to get similar recipes
     private interface SimilarRecipeCall {
         @GET("recipes/{id}/similar")
@@ -150,13 +159,5 @@ public class RequestManager {
         );
     }
 
-    // interface to get recipe instructions
-    private interface MethodCall {
-        @GET("recipes/{id}/analyzedInstructions")
-        Call<List<Method>> methodCall(
-                @Path("id") int id,
-                @Query("apiKey") String apiKey
-        );
-    }
 
 }

@@ -61,8 +61,8 @@ public class RecipeDetails extends AppCompatActivity {
         Meal_Source = findViewById(R.id.Meal_Source);
         Meal_Image = findViewById(R.id.Meal_Image);
         Meal_Ingredients = findViewById(R.id.Meal_Ingredients);
-        Meal_Similar = findViewById(R.id.Meal_Similar);
         Meal_Method = findViewById(R.id.Meal_Method);
+        Meal_Similar = findViewById(R.id.Meal_Similar);
     }
 
     private final RecipeDetailsListener recipeDetailsListener = new RecipeDetailsListener() {
@@ -86,6 +86,23 @@ public class RecipeDetails extends AppCompatActivity {
         }
     };
 
+    // Recipe Instructions
+    private final RecipeMethodListener recipeMethodListener = new RecipeMethodListener() {
+        @Override
+        public void didFetch(List<Method> response, String message) {
+            Meal_Method.setHasFixedSize(true);
+            Meal_Method.setLayoutManager(new LinearLayoutManager(RecipeDetails.this, LinearLayoutManager.VERTICAL, false));
+            methodAdapter = new MethodAdapter(RecipeDetails.this, response);
+            Meal_Method.setAdapter(methodAdapter);
+        }
+
+        @Override
+        public void didError(String message) {
+
+        }
+    };
+
+    // Similar Recipes
     private final SimilarRecipeListener similarRecipeListener = new SimilarRecipeListener() {
         @Override
         public void didFetch(List<SimilarRecipe> response, String message) {
@@ -105,22 +122,7 @@ public class RecipeDetails extends AppCompatActivity {
         @Override
         public void onRecipeClick(String id) {
             startActivity(new Intent(RecipeDetails.this, RecipeDetails.class)
-            .putExtra("id", id));
-        }
-    };
-
-    private final RecipeMethodListener recipeMethodListener = new RecipeMethodListener() {
-        @Override
-        public void didFetch(List<Method> response, String message) {
-            Meal_Method.setHasFixedSize(true);
-            Meal_Method.setLayoutManager(new LinearLayoutManager(RecipeDetails.this, LinearLayoutManager.VERTICAL, false));
-            methodAdapter = new MethodAdapter(RecipeDetails.this, response);
-            Meal_Method.setAdapter(methodAdapter);
-        }
-
-        @Override
-        public void didError(String message) {
-
+                    .putExtra("id", id));
         }
     };
 }

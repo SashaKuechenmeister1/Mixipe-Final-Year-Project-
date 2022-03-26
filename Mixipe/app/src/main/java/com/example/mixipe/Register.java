@@ -41,13 +41,6 @@ public class Register extends AppCompatActivity {
         mAuth           = FirebaseAuth.getInstance();
         progressBar     = findViewById(R.id.progressBar3);
 
-
-        if(mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), Swipe.class));
-            finish();
-        }
-
-
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
