@@ -9,6 +9,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import android.text.TextUtils;
 import android.widget.EditText;
@@ -25,6 +27,7 @@ public class Register extends AppCompatActivity {
     Button mRegisterBtn, mLoginBtn;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +82,8 @@ public class Register extends AppCompatActivity {
                 }
 
                 progressBar.setVisibility(View.VISIBLE);
+
+
 
                 // Register the user in firebase
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

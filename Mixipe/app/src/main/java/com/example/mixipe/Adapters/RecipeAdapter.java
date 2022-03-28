@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,8 @@ import com.example.mixipe.Listeners.RecipeOnClickListener;
 
 import com.example.mixipe.Models.Recipe;
 import com.example.mixipe.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 
@@ -80,6 +83,5 @@ class RecipeViewHolder extends RecyclerView.ViewHolder {
         rating = itemView.findViewById(R.id.rating);
         cooking_time = itemView.findViewById(R.id.cooking_time);
         RecipeImageView = itemView.findViewById(R.id.RecipeImageView);
-
     }
 }

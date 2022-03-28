@@ -24,6 +24,10 @@ import com.example.mixipe.Models.RandomRecipe;
 import com.example.mixipe.Models.Recipe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
@@ -36,6 +40,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -53,6 +58,9 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     RecipeAdapter adapter;
     CardStackView stackView;
 
+    public void onActivityCreated() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +68,6 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
         setContentView(R.layout.activity_swipe);
         stackView = findViewById(R.id.stack_view);
         getRecipe();
-
 
         /**** bottom navigation bar ****/
 
@@ -199,8 +206,5 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     public void onCardDisappeared(View view, int position) {
 
     }
-
-
-
 
 }

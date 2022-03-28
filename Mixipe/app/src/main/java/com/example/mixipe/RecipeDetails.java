@@ -1,6 +1,7 @@
 package com.example.mixipe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,13 +15,16 @@ import android.widget.Toast;
 
 import com.example.mixipe.Adapters.IngredientAdapter;
 import com.example.mixipe.Adapters.MethodAdapter;
+import com.example.mixipe.Adapters.RecipeAdapter;
 import com.example.mixipe.Adapters.SimilarAdapter;
+import com.example.mixipe.Listeners.RandomRecipeListener;
 import com.example.mixipe.Listeners.RecipeMethodListener;
 import com.example.mixipe.Listeners.RecipeOnClickListener;
 import com.example.mixipe.Listeners.RecipeDetailsListener;
 import com.example.mixipe.Listeners.SimilarRecipeListener;
 import com.example.mixipe.Models.Details;
 import com.example.mixipe.Models.Method;
+import com.example.mixipe.Models.RandomRecipe;
 import com.example.mixipe.Models.SimilarRecipe;
 import com.squareup.picasso.Picasso;
 
@@ -29,7 +33,7 @@ import java.util.List;
 public class RecipeDetails extends AppCompatActivity {
 
     int id;
-    TextView Meal_Name, Meal_Source;
+    TextView Meal_Name, Meal_Source, Meal_servings, Meal_time, Meal_rating, Meal_veg, Meal_vegan, Meal_gluten, Meal_dairy, Meal_cuisine;
     ImageView Meal_Image;
     RecyclerView Meal_Ingredients, Meal_Similar, Meal_Method;
     RequestManager requestManager;
@@ -37,6 +41,9 @@ public class RecipeDetails extends AppCompatActivity {
     IngredientAdapter ingredientAdapter;
     SimilarAdapter similarAdapter;
     MethodAdapter methodAdapter;
+
+    RecipeAdapter recipeAdapter;
+    RecyclerView recyclerView;
 
 
     @Override
@@ -63,6 +70,16 @@ public class RecipeDetails extends AppCompatActivity {
         Meal_Ingredients = findViewById(R.id.Meal_Ingredients);
         Meal_Method = findViewById(R.id.Meal_Method);
         Meal_Similar = findViewById(R.id.Meal_Similar);
+
+        Meal_servings = findViewById(R.id.Meal_servings);
+        Meal_time = findViewById(R.id.Meal_time);
+        Meal_veg = findViewById(R.id.Meal_veg);
+        Meal_vegan = findViewById(R.id.Meal_vegan);
+        Meal_gluten = findViewById(R.id.Meal_gluten);
+        Meal_dairy = findViewById(R.id.Meal_dairy);
+        Meal_cuisine = findViewById(R.id.Meal_cuisine);
+
+
     }
 
     private final RecipeDetailsListener recipeDetailsListener = new RecipeDetailsListener() {
@@ -71,6 +88,16 @@ public class RecipeDetails extends AppCompatActivity {
             progressDialog.dismiss();
             Meal_Name.setText(response.title);
             Meal_Source.setText(response.sourceName);
+
+            Meal_servings.setText("Servings: "+response.servings);
+            Meal_time.setText("Minutes: "+response.readyInMinutes);
+            Meal_veg.setText("Vegetarian: "+response.vegetarian);
+            Meal_vegan.setText("Vegan: "+response.vegan);
+            Meal_gluten.setText("Gluten Free: "+response.glutenFree);
+            Meal_dairy.setText("Dairy Free: "+response.dairyFree);
+            Meal_cuisine.setText("Cuisine: "+response.cuisines);
+
+
 
             Picasso.get().load(response.image).into(Meal_Image);
 
@@ -123,6 +150,23 @@ public class RecipeDetails extends AppCompatActivity {
         public void onRecipeClick(String id) {
             startActivity(new Intent(RecipeDetails.this, RecipeDetails.class)
                     .putExtra("id", id));
+        }
+    };
+
+    private final RandomRecipeListener randomRecipeListener = new RandomRecipeListener() {
+        @Override
+        public void didFetch(RandomRecipe response, String message) {
+            progressDialog.dismiss();
+            recyclerView = findViewById(R.id.random_recycler);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new GridLayoutManager(RecipeDetails.this, 1));
+            recipeAdapter = new RecipeAdapter(RecipeDetails.this, response.recipes, recipeOnClickListener);
+            recyclerView.setAdapter(recipeAdapter);
+        }
+
+        @Override
+        public void didError(String message) {
+            Toast.makeText(RecipeDetails.this, "error", Toast.LENGTH_SHORT);
         }
     };
 }

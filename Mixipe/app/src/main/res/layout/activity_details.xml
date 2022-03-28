@@ -97,7 +97,91 @@
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Additional Information"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                android:background="@color/teal_700"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/Meal_servings"
+                        android:textSize="15sp"
+                        android:padding="10dp"
+                        android:text="Serves: 1"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Meal_time"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:text="Cooking Time: 30"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Meal_veg"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:text="Vegetarian: "
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Meal_vegan"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:text="Vegan: "
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Meal_gluten"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:text="Gluten Free: "
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Meal_dairy"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:text="Dairy Free: "
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Meal_cuisine"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:text="Meal Pricing: "
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
+
+
     </ScrollView>
 
 </LinearLayout>

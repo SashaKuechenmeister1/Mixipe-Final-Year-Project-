@@ -26,30 +26,14 @@
             android:textAlignment="center"
             android:textColor="@color/purple_700"
             android:textSize="17sp"
-            android:textStyle="bold"
-            />
-        <RelativeLayout
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/RecipeImageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/RecipeImageView"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
-                android:scaleType="centerCrop" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/favBtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="center"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/ic_favourite" />
-        </RelativeLayout>
-
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="match_parent"
