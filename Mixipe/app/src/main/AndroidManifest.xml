@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mixipe">
         <activity
+            android:name=".ShoppingList"
+            android:exported="false" />
+        <activity
             android:name=".RecipeDetails"
             android:exported="false" />
         <activity

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -58,6 +59,8 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     RecipeAdapter adapter;
     CardStackView stackView;
 
+    private Button button;
+
     public void onActivityCreated() {
 
     }
@@ -68,6 +71,14 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
         setContentView(R.layout.activity_swipe);
         stackView = findViewById(R.id.stack_view);
         getRecipe();
+
+        button = (Button) findViewById(R.id.shoppingList_btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity();
+            }
+        });
 
         /**** bottom navigation bar ****/
 
@@ -205,6 +216,11 @@ public class Swipe extends AppCompatActivity implements CardStackListener {
     @Override
     public void onCardDisappeared(View view, int position) {
 
+    }
+
+    public void openActivity() {
+        Intent intent = new Intent(this, ShoppingList.class);
+        startActivity(intent);
     }
 
 }
