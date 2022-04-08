@@ -38,8 +38,8 @@ public class RequestManager {
     // Method to access random recipes interface / get random recipes
     public void getRandomRecipe(RandomRecipeListener listener, List<String> tags){
         RandomRecipeCall randomRecipeCall = retrofit.create(RandomRecipeCall.class);
-        // list 5 random recipes
-        Call<RandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "5", tags);
+        // list 15 random recipes
+        Call<RandomRecipe> call = randomRecipeCall.RandomRecipeCall(context.getString(R.string.apiKey), "15", tags);
         call.enqueue(new Callback<RandomRecipe>() {
             @Override
             public void onResponse(Call<RandomRecipe> call, Response<RandomRecipe> response) {
